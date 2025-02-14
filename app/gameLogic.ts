@@ -124,6 +124,7 @@ class GameLogic {
     step() {
         if (this.standByRows.length > 0) {
             this._removeStandByRows()
+            this._createFallingBlock()
         } else if (!this.fallingBlock) {
             this._createFallingBlock()
         } else {

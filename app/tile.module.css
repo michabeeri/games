@@ -18,8 +18,10 @@
             0 0 30px rgba(0, 0, 255, 0.5);
 }
 
-.standBy {
-    box-shadow: initial;
-    border: initial;
-    transition: box-shadow 0.5s ease-in, border-color 0.5s ease-in;
+.shadow.full.standBy,
+.overlay.full.standBy {
+    box-shadow: none;
+    border-color: transparent;
+    background-color: transparent;
+    transition: box-shadow 0.5s ease-in, border-color 0.5s ease-in, background-color 0.5s ease-in;
 }

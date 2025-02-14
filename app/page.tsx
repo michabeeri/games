@@ -17,7 +17,7 @@ export default function Page() {
         setInterval(() => {
             gameLogic.step()
             forceRender()
-        }, gameSpeed * 3)
+        }, gameSpeed)
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft' && gameLogic.moveLeft()) {
@@ -31,11 +31,32 @@ export default function Page() {
             }
         })
 
+        document.body.style.overflow = 'hidden'
+        document.body.style.height = '100%'
     }, [])
 
   return (
-    <main className="flex min-h-screen flex-col p-6">
-        <Board renderRoot={renderRoot}/>
+    <main
+        className='flex min-h-screen flex-col p-6'
+        style={{
+            backgroundImage: 'url(/background-1.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: '100vh',
+            display: 'flex',
+            justifyContent: 'center'
+        }}>
+        <div
+        style={{
+            backgroundImage: 'url(/frame-1.png)',
+            backgroundSize: '113% 104%',
+            backgroundPosition: 'center',
+            marginTop: '10vh',
+            padding: '17px 17px 23px 23px',
+            alignSelf: 'flex-start'
+        }}>
+            <Board renderRoot={renderRoot}/>
+        </div>
     </main>
   );
 }

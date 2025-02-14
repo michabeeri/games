@@ -28,7 +28,8 @@ export const Tile = memo(function ({row, col, isFull, isStandBy}: TileProps) {
             className={Object.entries({
                 [styles.tile]: true,
                 [styles.overlay]: true,
-                [styles.full]: isFull
+                [styles.full]: isFull,
+                [styles.standBy]: isStandBy
             }).reduce((acc, [key, value]) => value ? `${acc} ${key}` : acc, '')}
             style={{
                 gridRow: `${row + 1} / ${row + 2}`,
