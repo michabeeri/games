@@ -1,17 +1,25 @@
 .tile {
     width: 20px;
     height: 20px;
+    border-radius: 3px;
+    box-sizing: border-box;
 }
 
-.tile.full {
-    border-radius: 10px;
+.overlay.full {
+    z-index: 10;
+    background-color: white;
+    border: 0.5px solid rgba(255, 0, 0, 0.5);
+}
+
+.shadow.full {
     box-shadow:
             0 0 10px rgba(255, 0, 0, 0.5),
             0 0 20px rgba(255, 165, 0, 0.5),
             0 0 30px rgba(0, 0, 255, 0.5);
 }
 
-.tile.full.standBy {
+.standBy {
     box-shadow: initial;
-    transition: box-shadow 0.5s ease-in;
+    border: initial;
+    transition: box-shadow 0.5s ease-in, border-color 0.5s ease-in;
 }

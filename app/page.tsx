@@ -17,7 +17,7 @@ export default function Page() {
         setInterval(() => {
             gameLogic.step()
             forceRender()
-        }, gameSpeed)
+        }, gameSpeed * 3)
 
         document.addEventListener('keydown', (e) => {
             if (e.key === 'ArrowLeft' && gameLogic.moveLeft()) {
