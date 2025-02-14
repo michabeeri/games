@@ -1,3 +1,4 @@
+import styles from './tile.module.css'
 import {memo} from "react";
 
 export interface TileProps {
@@ -10,15 +11,14 @@ export interface TileProps {
 export const Tile = memo(function ({row, col, isFull, isStandBy}: TileProps) {
     return (<div
         data-key={`row${row}-col${col}`}
-        className={`cell ${isFull ? 'bg-black' : 'bg-white'}`}
+        className={Object.entries({
+            [styles.tile]: true,
+            [styles.full]: isFull,
+            [styles.standBy]: isStandBy
+        }).reduce((acc, [key, value]) => value ? `${acc} ${key}` : acc, '')}
         style={{
-            width: '20px',
-            height: '20px',
-            border: '1px solid black',
             gridRow: `${row + 1} / ${row + 2}`,
-            gridColumn: `${col + 1} / ${col + 2}`,
-            backgroundColor: isStandBy  ? 'white' : (isFull ? 'black' : 'white'),
-            transition: isStandBy ? 'backgroundColor 0.3s ease-in' : ''
+            gridColumn: `${col + 1} / ${col + 2}`
         }}
     />)
 } as React.FC<TileProps>)

@@ -1,0 +1,17 @@
+.tile {
+    width: 20px;
+    height: 20px;
+}
+
+.tile.full {
+    border-radius: 10px;
+    box-shadow:
+            0 0 10px rgba(255, 0, 0, 0.5),
+            0 0 20px rgba(255, 165, 0, 0.5),
+            0 0 30px rgba(0, 0, 255, 0.5);
+}
+
+.tile.full.standBy {
+    box-shadow: initial;
+    transition: box-shadow 0.5s ease-in;
+}
