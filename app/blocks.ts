@@ -23,7 +23,7 @@ export const Blocks: Record<string, Block> = {
     },
     T: {
         init: [0, 4],
-        parts: [[-1, 0], [0, 0], [1, 0], [0, 1]],
+        parts: [[0, -1], [0, 0], [0, 1], [1, 0]],
     },
     I: {
         init: [1, 4],

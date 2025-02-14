@@ -13,11 +13,11 @@ export interface FallingBlock {
 }
 
 export interface CellData {
-    row: number
-    col: number
     isFull: boolean
+    isStandBy: boolean
 }
 
 export interface GameData {
-    cellsDataRef: RefObject<CellData[][]>
+    cellsData: CellData[][]
+    fallingBlock: FallingBlock
 }
