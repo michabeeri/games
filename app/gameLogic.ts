@@ -15,7 +15,13 @@ class GameLogic {
     private fallingBlock?: FallingBlock
     private standByRows: number[]
     constructor() {
-        this._reset()
+        this.cellsData = Array.from({ length: colLength }).map((_, i) => (
+            Array.from({ length: rowLength }).map((_, j) => ({
+                isFull: false,
+                isStandBy: false
+            }))))
+        this.fallingBlock = undefined
+        this.standByRows = []
     }
 
     _reset(): void {
@@ -57,7 +63,7 @@ class GameLogic {
     }
 
     _tryMoveBlock(delta: Point2D, angle: Matrix2D): boolean {
-        const {shape, center, rotation} = this.fallingBlock
+        const {shape, center, rotation} = this.fallingBlock!
         const adjustedCenter = [center[0] + delta[0], center[1] + delta[1]]
         const adjustedRotation = matrixProduct(rotation, angle)
         const adjustedShape = shape
@@ -70,7 +76,7 @@ class GameLogic {
         }
         const isLegit = adjustedShape.every(position =>  position[0] >= 0 && position[0] < colLength && position[1] >= 0 && position[1] < rowLength && !this.cellsData[position[0]][position[1]].isFull)
         if (isLegit) {
-            this.fallingBlock!.center = adjustedCenter
+            this.fallingBlock!.center = adjustedCenter as Point2D
             this.fallingBlock!.rotation = adjustedRotation
             return true
         }
@@ -110,7 +116,7 @@ class GameLogic {
 
     _moveDownAndHandleConsequence(): void {
         if (!this._tryMoveBlock([1, 0], rotation0)) {
-            const {shape, center, rotation} = this.fallingBlock
+            const {shape, center, rotation} = this.fallingBlock!
             const newFullCells = shape
                 .map(point => vectorMatrixProduct(point, rotation))
                 .map(([row, col]) => [row + center[0], col + center[1]])

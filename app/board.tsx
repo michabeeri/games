@@ -7,7 +7,11 @@ import {matrixProduct, rotation0, rotation270, vectorMatrixProduct} from './math
 import {Blocks} from "@/app/blocks";
 import styles from './board.module.css'
 
-export const Board = () => {
+export interface BoardProps {
+    renderRoot: boolean
+}
+
+export const Board = ({renderRoot: boolean}: BoardProps) => {
     const gameData = gameLogic.getGameContext()
     const {shape, center, rotation} = gameData.fallingBlock
     const positions = shape

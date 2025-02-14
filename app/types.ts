@@ -1,4 +1,4 @@
-import type {Point2D} from './math2D'
+import type {Point2D, Matrix2D} from './math2D'
 import type {RefObject} from 'react'
 
 export interface Block {
@@ -9,7 +9,7 @@ export interface Block {
 export interface FallingBlock {
     center: Point2D
     shape: Point2D[]
-    rotation: Point2D[]
+    rotation: Matrix2D
 }
 
 export interface CellData {

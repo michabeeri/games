@@ -3,8 +3,8 @@ export type Matrix2D = [[number, number], [number, number]]
 export const rotation0: Matrix2D = [[1, 0], [0, 1]]
 export const rotation270: Matrix2D = [[0, 1], [-1, 0]]
 
-export const matrixProduct = (a: Matrix2D, b: Matrix2D) => {
-    return a.map((row, i) => row.map((_, j) => row.reduce((acc, _, k) => acc + a[i][k] * b[k][j], 0)))
+export const matrixProduct = (a: Matrix2D, b: Matrix2D): Matrix2D => {
+    return a.map((row, i) => row.map((_, j) => row.reduce((acc, _, k) => acc + a[i][k] * b[k][j], 0))) as Matrix2D
 }
 
 export const vectorMatrixProduct = (point: Point2D, mat: Matrix2D) => {

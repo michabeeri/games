@@ -1,0 +1,18 @@
+.controls {
+    grid-column-start: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: grid;
+    grid-template-columns: 60px 25fr 60px 25fr 60px;
+    grid-template-rows: 60px 100fr 60px;
+}
+
+.button {
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
+    backdrop-filter: blur(2px) brightness(0.9);
+    border-style: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
